@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Лабораторна робота 4 — Варіант 5410</title>
+  <style>
+    body { font-family: monospace; font-size: 13px; margin: 20px; background: #f9f9f9; }
+    h1 { font-size: 16px; border-bottom: 2px solid #000; padding-bottom: 4px; margin-top: 24px; }
+    h2 { font-size: 13px; margin: 12px 0 4px; }
+    canvas { border: 1px solid #ccc; background: #fff; display: block; margin-bottom: 8px; }
+    .row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .col { flex: 1; min-width: 300px; }
+    .matrix { font-family: monospace; font-size: 11px; line-height: 1.6;
+              background: #fff; border: 1px solid #ccc; padding: 8px; display: inline-block;
+              white-space: pre; }
+    table { border-collapse: collapse; font-size: 12px; margin: 6px 0; }
+    th, td { border: 1px solid #999; padding: 3px 7px; text-align: center; }
+    th { background: #eee; }
+    .box { background: #fff; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    p { margin: 4px 0; }
+    .subtitle { color: #555; font-size: 12px; margin-bottom: 16px; }
+    .lbl { color: #555; }
+  </style>
+</head>
+<body>
+
+<h1>Лабораторна робота 4. Характеристики та зв'язність графа</h1>
+<p class="subtitle">Варіант 5410 &nbsp;|&nbsp; n1=5, n2=4, n3=1, n4=0 &nbsp;|&nbsp; N=11 вершин &nbsp;|&nbsp; seed=5410</p>
+
+<h1>П.1 — Графи (k₁ = 0.69)</h1>
+<div class="row">
+  <div class="col">
+    <h2>Орієнтований граф (Adir)</h2>
+    <canvas id="canvas-dir1" width="480" height="420"></canvas>
+  </div>
+  <div class="col">
+    <h2>Неорієнтований граф (Aundir)</h2>
+    <canvas id="canvas-undir1" width="480" height="420"></canvas>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2>Матриця Adir</h2>
+    <div class="matrix" id="mat-dir1"></div>
+  </div>
+  <div class="col">
+    <h2>Матриця Aundir</h2>
+    <div class="matrix" id="mat-undir1"></div>
+  </div>
+</div>
+
+<h1>П.2 — Характеристики графів</h1>
+<div class="box">
+  <h2>Ступені вершин</h2>
+  <div id="degrees-table"></div>
+</div>
+<div class="box">
+  <h2>Однорідність (регулярність)</h2>
+  <div id="regularity"></div>
+</div>
+<div class="row">
+  <div class="col box">
+    <h2>Висячі вершини (d = 1)</h2>
+    <span id="hanging"></span>
+  </div>
+  <div class="col box">
+    <h2>Ізольовані вершини (d = 0)</h2>
+    <span id="isolated"></span>
+  </div>
+</div>
+
+<h1>П.3 — Модифікований граф (k₂ = 0.725)</h1>
+<div class="row">
+  <div class="col">
+    <h2>Орієнтований граф Adir2</h2>
+    <canvas id="canvas-dir2" width="480" height="420"></canvas>
+  </div>
+  <div class="col">
+    <h2>Матриця Adir2</h2>
+    <div class="matrix" id="mat-dir2"></div>
+  </div>
+</div>
+
+<h1>П.4 — Характеристики модифікованого графа</h1>
+<div class="box">
+  <h2>Напівступені вершин (Adir2)</h2>
+  <div id="degrees-table2"></div>
+</div>
+<div class="row">
+  <div class="col box">
+    <h2>Шляхи довжини 2</h2>
+    <div id="paths2" style="line-height:1.8;font-size:11px"></div>
+    <p class="lbl" id="paths2-count"></p>
+  </div>
+  <div class="col box">
+    <h2>Шляхи довжини 3</h2>
+    <div id="paths3" style="line-height:1.8;font-size:11px"></div>
+    <p class="lbl" id="paths3-count"></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2>Матриця досяжності</h2>
+    <div class="matrix" id="mat-reach"></div>
+  </div>
+  <div class="col">
+    <h2>Матриця сильної зв'язності</h2>
+    <div class="matrix" id="mat-strong"></div>
+  </div>
+</div>
+<div class="box">
+  <h2>Компоненти сильної зв'язності</h2>
+  <div id="sccs" style="line-height:1.9"></div>
+</div>
+<div class="box">
+  <h2>Дуги графа конденсації</h2>
+  <div id="cond-edges" style="line-height:1.9"></div>
+</div>
+<h2>Граф конденсації</h2>
+<canvas id="canvas-cond" width="480" height="420"></canvas>
+
+<script src="graph.js"></script>
+</body>
+</html>
